@@ -1,4 +1,4 @@
-import {plus} from '../calc';
+import { plus } from '../calc';
 
 describe('plus test', () => {
   test('1 + 1', () => {

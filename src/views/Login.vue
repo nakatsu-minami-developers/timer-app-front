@@ -5,28 +5,22 @@ import { object, string, setLocale } from 'yup';
 setLocale({
   mixed: {
     default: '不正な値です。',
-    required: ({ label }) => `${label}は必須の項目です。`,
+    required: ({ label }) => `${label}は必須の項目です。`
   },
   string: {
     email: 'メールアドレスの形式ではありません。'
-  },
-})
+  }
+});
 const schema = object({
-  email: string()
-    .required('')
-    .email()
-    .label('メールアドレス'),
-  password: string()
-    .required('')
-    .label('パスワード')
+  email: string().required('').email().label('メールアドレス'),
+  password: string().required('').label('パスワード')
 });
 
 const { errors, meta } = useForm({
-  validationSchema: schema,
-})
+  validationSchema: schema
+});
 const { value: email } = useField('email');
-const { value: password } = useField('password')
-
+const { value: password } = useField('password');
 </script>
 
 <template>
@@ -40,11 +34,7 @@ const { value: password } = useField('password')
           <span class="label-text">メールアドレス</span>
           <span class="label-text-alt text-red-400">*</span>
         </label>
-        <input
-          type="email"
-          v-model="email"
-          class="input input-bordered"
-        >
+        <input type="email" v-model="email" class="input input-bordered" />
         <p class="text-red-400">{{ errors.email }}</p>
       </div>
       <div class="form-control mt-4">
@@ -52,20 +42,12 @@ const { value: password } = useField('password')
           <span class="label-text">パスワード</span>
           <span class="label-text-alt text-red-400">*</span>
         </label>
-        <input
-          type="password"
-          v-model="password"
-          class="input input-bordered"
-        >
+        <input type="password" v-model="password" class="input input-bordered" />
         <p class="text-red-400">{{ errors.password }}</p>
       </div>
       <div class="mt-8">
-        <button
-          type="submit"
-          :disabled="!meta.valid"
-          class="btn btn-primary w-full"
-        >
-        ログイン
+        <button type="submit" :disabled="!meta.valid" class="btn btn-primary w-full">
+          ログイン
         </button>
       </div>
     </div>

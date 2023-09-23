@@ -1,5 +1,3 @@
 <template>
-  <div>
-    ログイン前のホーム画面
-  </div>
+  <div>ログイン前のホーム画面</div>
 </template>

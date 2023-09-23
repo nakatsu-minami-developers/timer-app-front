@@ -5,31 +5,24 @@ import { object, string, setLocale } from 'yup';
 setLocale({
   mixed: {
     default: '不正な値です。',
-    required: ({ label }) => `${label}は必須の項目です。`,
+    required: ({ label }) => `${label}は必須の項目です。`
   },
   string: {
     email: 'メールアドレスの形式ではありません。'
-  },
-})
+  }
+});
 const schema = object({
-  name: string()
-    .required()
-    .label('名前'),
-  email: string()
-    .required('')
-    .email()
-    .label('メールアドレス'),
-  password: string()
-    .required('')
-    .label('パスワード')
+  name: string().required().label('名前'),
+  email: string().required('').email().label('メールアドレス'),
+  password: string().required('').label('パスワード')
 });
 
 const { errors, meta } = useForm({
-  validationSchema: schema,
-})
+  validationSchema: schema
+});
 const { value: name } = useField('name');
 const { value: email } = useField('email');
-const { value: password } = useField('password')
+const { value: password } = useField('password');
 </script>
 
 <template>
@@ -43,12 +36,7 @@ const { value: password } = useField('password')
           <span class="label-text">氏名</span>
           <span class="label-text-alt text-red-400">*</span>
         </label>
-        <input
-          type="text"
-          v-model="name"
-          placeholder="your name"
-          class="input input-bordered"
-        >
+        <input type="text" v-model="name" placeholder="your name" class="input input-bordered" />
         <p class="text-red-400">
           {{ errors.name }}
         </p>
@@ -58,12 +46,12 @@ const { value: password } = useField('password')
           <span class="label-text">メールアドレス</span>
           <span class="label-text-alt text-red-400">*</span>
         </label>
-        <input 
+        <input
           type="email"
           v-model="email"
           placeholder="user@example.com"
           class="input input-bordered"
-        >
+        />
         <p class="text-red-400">
           {{ errors.email }}
         </p>
@@ -78,10 +66,12 @@ const { value: password } = useField('password')
           v-model="password"
           placeholder="⚫⚫︎⚫︎⚫︎⚫︎⚫︎⚫︎︎"
           class="input input-bordered"
-        >
+        />
         <p class="text-red-400">{{ errors.password }}</p>
       </div>
-      <button type="submit" :disabled="!meta.valid" class="btn btn-primary w-full mt-16">登録</button>
+      <button type="submit" :disabled="!meta.valid" class="btn btn-primary w-full mt-16">
+        登録
+      </button>
     </form>
   </div>
 </template>
