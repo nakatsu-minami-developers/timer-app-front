@@ -9,6 +9,7 @@
     }
   ],
   "compilerOptions": {
-    "types": ["webpack-env", "jest"]
+    "types": ["webpack-env", "jest"],
+    "resolveJsonModule": true
   }
 }
