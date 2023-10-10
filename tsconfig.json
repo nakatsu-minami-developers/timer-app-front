@@ -10,6 +10,8 @@
   ],
   "compilerOptions": {
     "types": ["webpack-env", "jest"],
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowJs": true
   }
 }
