@@ -34,8 +34,8 @@ const { value: password } = useField('password');
           <span class="label-text">メールアドレス</span>
           <span class="label-text-alt text-red-400">*</span>
         </label>
-        <input type="email" v-model="email" class="input input-bordered" />
-        <p class="text-red-400">{{ errors.email }}</p>
+        <input type="email" v-model="email" data-test="email" class="input input-bordered" />
+        <span class="error text-red-400">{{ errors.email }}</span>
       </div>
       <div class="form-control mt-4">
         <label class="label">
@@ -46,7 +46,7 @@ const { value: password } = useField('password');
         <p class="text-red-400">{{ errors.password }}</p>
       </div>
       <div class="mt-8">
-        <button type="submit" :disabled="!meta.valid" class="btn btn-primary w-full">
+        <button type="submit" :disabled="!meta.valid" data-test="button" class="btn btn-primary w-full">
           ログイン
         </button>
       </div>
