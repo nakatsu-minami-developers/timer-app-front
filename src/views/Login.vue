@@ -46,7 +46,12 @@ const { value: password } = useField('password');
         <p class="text-red-400">{{ errors.password }}</p>
       </div>
       <div class="mt-8">
-        <button type="submit" :disabled="!meta.valid" data-test="button" class="btn btn-primary w-full">
+        <button
+          type="submit"
+          :disabled="!meta.valid"
+          data-test="button"
+          class="btn btn-primary w-full"
+        >
           ログイン
         </button>
       </div>

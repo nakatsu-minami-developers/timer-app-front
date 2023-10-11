@@ -5,10 +5,10 @@ import Login from '@/views/Login.vue';
 describe('LoginForm', () => {
   it('renders correctly', () => {
     const wrapper = mount(Login);
-    const button = wrapper.find('[data-test="button"]')
+    const button = wrapper.find('[data-test="button"]');
     expect(button.attributes().disabled).toBeUndefined();
   });
-  
+
   // TODO: ここのテスト調査
   // it('email validation', async () => {
   //   const wrapper = mount(Login);
